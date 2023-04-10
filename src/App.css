@@ -1,0 +1,32 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@1,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.website__div{
+  /* transition: all ease-in-out; */
+}
+
+.hello___btn{
+  border: solid 1px #4ec8b1;
+  width: 25%;
+  height: 6vh;
+  border-radius: 7px;
+  color: #4ec8b1;
+  margin-top: 4%;
+  
+}
+
+.hello___btn :hover{
+      background-color: #4ec8b1;
+}
+
+.josh___text{
+  writing-mode: vertical-rl;
+}
+
+
