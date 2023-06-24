@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { ClipLoader } from 'react-spinners';
 
 
 
@@ -17,9 +18,33 @@ const Experience = () => {
   function changename() {
     setWebsite({name: "website", texts:''})
   }
+
+  const [isLoading, setIsLoading] = useState(true)
+
+
+    useEffect(()=> {
+        setIsLoading(true)
+        setTimeout(()=> {
+           setIsLoading(false)
+
+        },5000)
+   }, [])
     
   return (
     <div  className='className= bg-[#0a192f]  h-fit'>
+
+{isLoading ? (
+        
+        
+        
+        <div className='flex justify-center items-center inset-0 bg-[#0a192f] opacity-1 h-screen'>
+       {/* <ScaleLoader color={"#030d26"} loading={isLoading}  size={100} className='  '/> */}
+       <ClipLoader color={"#59e2c5"}  loading={isLoading} size={100} className=""/>
+      
+       </div>
+       
+   
+ ) : ( <div className=''>
 
 <div className='max-w-md mx-auto overflow-hidden md:max-w-4xl w-[100%] py-[2%] pt-[7%]'>
             <div className='flex justify-center'>
@@ -61,19 +86,21 @@ const Experience = () => {
 
 
 <div className='b-[#48b9a5] w-[100%] h-fit pt-10 '>
-    <p className="font-bold text-[1.3rem] pl-3 text-[#e1dbdb]"> {Website.name}</p>
+    <p className="font-bold text-[1.3rem] pl-3 text-[#e1dbdb]">{Website.name}</p>
     <p className='font-semibold text-[1.1rem] pt-4 pl-3 pr-3 text-[#7a85a2]'>{Website.text}</p>
     
 </div>
 
 </div>
 
-<div className='flex justify-center pb-[100%] pt-6 '>
+<div className='flex justify-center pb-[100%] pt-6 xl:pb-[30%]'>
               <div className='border-2 border-[#48b9a5] w-[10%]  rounded-full '>
               <Link to="/" > <button className='rounded-full'><i class="ri-arrow-left-circle-fill font-semibold text-[#48b9a5]  text-[1.6rem] ml-1"></i></button></Link>
              </div>
               </div>
+              </div> )}
     </div>
+    
   )
 }
 

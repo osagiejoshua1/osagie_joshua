@@ -1,17 +1,42 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useState, useEffect} from "react"
+import { ClipLoader } from 'react-spinners';
 
 const About = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+
+    useEffect(()=> {
+        setIsLoading(true)
+        setTimeout(()=> {
+           setIsLoading(false)
+
+        },5000)
+   }, [])
+      
   return (
     <div className=' bg-[#0a192f]  h-fit'>
+       {isLoading ? (
+        
+        
+        
+        <div className='flex justify-center items-center inset-0 bg-[#0a192f] opacity-1 h-screen'>
+       {/* <ScaleLoader color={"#030d26"} loading={isLoading}  size={100} className='  '/> */}
+       <ClipLoader color={"#59e2c5"}  loading={isLoading} size={100} className=""/>
+      
+       </div>
+       
+   
+ ) : ( <div className=''>
                 
-          <div className='max-w-md mx-auto overflow-hidden md:max-w-4xl w-[100%] py-[2%]'>
+          <div className=' mx-auto overflow-hidden md:max-w-7xl w-[100%] py-[2%]'>
             <div className='flex justify-center'>
               <p className='text-[1.5rem] font-semibold text-[#e1dbdb]'> <span className='text-[1.5rem] font-semibold text-[#48b9a5]'>01.</span>  About Me.</p>
             </div>
           </div>
-    <div className='max-w-md mx-auto overflow-hidden md:max-w-6xl  '>
-          <div className=' grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 gap-5 '>
+    <div className='mx-auto overflow-hidden md:max-w-6xl  '>
+          <div className=' grid  grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 gap-5 '>
             <div className=' h-fit w-[100%] mt-5 px-2 pl-5 '>
                 <p className='text-[#65708c] font-semibold text-[1.1rem]'>
                 Hello! My name is Joshua and I enjoy creating things that live on 
@@ -69,7 +94,7 @@ const About = () => {
               <Link to="/" > <button className='rounded-full'><i class="ri-arrow-left-circle-fill font-semibold text-[#48b9a5]  text-[1.6rem] ml-1"></i></button></Link>
              </div>
               </div>
-             
+              </div> )}
         </div>
 
   )

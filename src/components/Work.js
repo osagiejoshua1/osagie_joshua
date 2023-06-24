@@ -1,10 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ClipLoader } from 'react-spinners';
+import { useState, useEffect } from "react"
 
 const Work = () => {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+
+    useEffect(()=> {
+        setIsLoading(true)
+        setTimeout(()=> {
+           setIsLoading(false)
+
+        },5000)
+   }, [])
+
   return (
     <div  className=' bg-[#0a192f]  h-fit'>
+      {isLoading ? (
+        
+        
+        
+        <div className='flex justify-center items-center inset-0 bg-[#0a192f] opacity-1 h-screen'>
+       {/* <ScaleLoader color={"#030d26"} loading={isLoading}  size={100} className='  '/> */}
+       <ClipLoader color={"#59e2c5"}  loading={isLoading} size={100} className=""/>
       
+       </div>
+       
+   
+ ) : ( <div className=''>
 
       <div className='max-w-md mx-auto overflow-hidden md:max-w-4xl w-[100%] py-[2%] pt-[5%]'>
             <div className='flex justify-center'>
@@ -128,7 +153,7 @@ const Work = () => {
              </div>
         </div>  
 
-      
+        </div> )}
     </div>
 
     
